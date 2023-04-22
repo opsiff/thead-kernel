@@ -153,6 +153,26 @@ static const struct prot_bits pte_bits[] = {
 		.val = _PAGE_PRESENT,
 		.set = "V",
 		.clear = ".",
+	}, {
+		.mask = BIT(63),
+		.val = BIT(63),
+		.set = "SO",
+		.clear = "WO",
+	}, {
+		.mask = BIT(62),
+		.val = BIT(62),
+		.set = "CA",
+		.clear = "NC",
+	}, {
+		.mask = BIT(61),
+		.val = BIT(61),
+		.set = "BU",
+		.clear = "NB",
+	}, {
+		.mask = BIT(60),
+		.val = BIT(60),
+		.set = "SH",
+		.clear = "NS",
 	}
 };
 
