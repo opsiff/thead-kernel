@@ -74,6 +74,7 @@ jobs:
 
                 # Install DTB
                 sudo cp -v arch/riscv/boot/dts/thead/light-lpi4a.dtb ${GITHUB_WORKSPACE}/rootfs/boot/
+                sudo cp -v arch/riscv/boot/dts/thead/light-lpi4a-dsi0-hdmi.dtb ${GITHUB_WORKSPACE}/rootfs/boot/
               popd
 
       - name: IMG_MODULE compile
