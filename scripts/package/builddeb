@@ -94,6 +94,10 @@ deploy_kernel_headers () {
 	 if grep -q '^CONFIG_ASN1' $KCONFIG_CONFIG ; then
 	  ${CROSS_COMPILE}gcc -O2 -o "$destdir/scripts/asn1_compiler" "$objtree/scripts/asn1_compiler.c" -I$srctree/include
 	 fi
+	 if grep -q '^CONFIG_MODVERSIONS' $KCONFIG_CONFIG ; then
+	  ${CROSS_COMPILE}gcc -O2 -o "$destdir/scripts/genksyms/genksyms" "$objtree/scripts/genksyms/genksyms.c" \
+		"$objtree/scripts/genksyms/parse.tab.c" "$objtree/scripts/genksyms/lex.lex.c" -I$srctree/include
+	 fi
 	 ${CROSS_COMPILE}gcc -O2 -o "$destdir/scripts/basic/fixdep" "$objtree/scripts/basic/fixdep.c"
 	 ${CROSS_COMPILE}gcc -O2 -o "$destdir/scripts/kconfig/conf" "$objtree/scripts/kconfig/conf.c" "$objtree/scripts/kconfig/confdata.c" "$objtree/scripts/kconfig/expr.c" "$objtree/scripts/kconfig/lexer.lex.c" "$objtree/scripts/kconfig/parser.tab.c" "$objtree/scripts/kconfig/preprocess.c" \
 		   "$objtree/scripts/kconfig/symbol.c" "$objtree/scripts/kconfig/util.c"
