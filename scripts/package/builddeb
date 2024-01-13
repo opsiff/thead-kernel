@@ -94,9 +94,6 @@ deploy_kernel_headers () {
 	 if grep -q '^CONFIG_ASN1' $KCONFIG_CONFIG ; then
 	  ${CROSS_COMPILE}gcc -O2 -o "$destdir/scripts/asn1_compiler" "$objtree/scripts/asn1_compiler.c" -I$srctree/include
 	 fi
-	 if grep -q '^CONFIG_VT' $KCONFIG_CONFIG ; then
-	  ${CROSS_COMPILE}gcc -O2 -o "$destdir/scripts/conmakehash" "$objtree/scripts/conmakehash.c"
-	 fi
 	 ${CROSS_COMPILE}gcc -O2 -o "$destdir/scripts/basic/fixdep" "$objtree/scripts/basic/fixdep.c"
 	 ${CROSS_COMPILE}gcc -O2 -o "$destdir/scripts/unifdef" "$objtree/scripts/unifdef.c"
 	 ${CROSS_COMPILE}gcc -O2 -o "$destdir/scripts/mod/mk_elfconfig" "$objtree/scripts/mod/mk_elfconfig.c"
